@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+SkillGraph — Skills
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-header">
+
+    <span class="eyebrow">
+        SKILL EXPLORER
+    </span>
+
+    <h1>
+        Skills
+    </h1>
+
+    <p>
+        Explore skills and discover the developers,
+        projects and technologies connected to them.
+    </p>
+
+</section>
+
+
+<section class="search-section">
+
+    <input
+        id="skill-search"
+        class="search-input"
+        type="search"
+        placeholder="Search skills..."
+        autocomplete="off"
+    >
+
+</section>
+
+
+<div
+    id="skills-loading"
+    class="loading-state"
+>
+    Loading skills...
+</div>
+
+
+<div
+    id="skills-empty"
+    class="empty-state"
+    hidden
+>
+    No skills found.
+</div>
+
+
+<section
+    id="skills-grid"
+    class="skill-grid"
+>
+</section>
+
+
+<div
+    id="skills-error"
+    class="error-state"
+    hidden
+>
+    Unable to load skills. Please try again.
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+    loadSkills();
+</script>
+
+{% endblock %}

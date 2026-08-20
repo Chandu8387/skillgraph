@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}
+SkillGraph — Learning Path
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-header">
+
+    <span class="eyebrow">
+        GRAPH LEARNING PATH
+    </span>
+
+    <h1>
+        Find a Learning Path
+    </h1>
+
+    <p>
+        Discover connected skills and the steps
+        between them using the knowledge graph.
+    </p>
+
+</section>
+
+
+<section class="path-form">
+
+    <div class="form-group">
+
+        <label for="path-start">
+            Starting skill
+        </label>
+
+        <input
+            id="path-start"
+            class="search-input"
+            type="text"
+            placeholder="e.g. Python"
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="path-target">
+            Target skill
+        </label>
+
+        <input
+            id="path-target"
+            class="search-input"
+            type="text"
+            placeholder="e.g. Django"
+        >
+
+    </div>
+
+
+    <button
+        id="find-path"
+        class="primary-button"
+        type="button"
+    >
+        Find Learning Path
+    </button>
+
+</section>
+
+
+<div
+    id="path-loading"
+    class="loading-state"
+    hidden
+>
+    Finding the best paths...
+</div>
+
+
+<div
+    id="path-error"
+    class="error-state"
+    hidden
+>
+    Unable to find a learning path.
+</div>
+
+
+<div
+    id="path-empty"
+    class="empty-state"
+    hidden
+>
+    No learning path found between these skills.
+</div>
+
+
+<section
+    id="path-results"
+    class="path-results"
+    hidden
+>
+
+    <div class="section-heading">
+
+        <span class="eyebrow">
+            GRAPH TRAVERSAL
+        </span>
+
+        <h2>
+            Suggested paths
+        </h2>
+
+    </div>
+
+
+    <div id="path-list"></div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+    loadLearningPath();
+</script>
+
+{% endblock %}

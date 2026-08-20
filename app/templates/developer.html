@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}
+SkillGraph — Developer
+{% endblock %}
+
+
+{% block content %}
+
+<div
+    id="developer-loading"
+    class="loading-state profile-loading"
+>
+    Loading developer profile...
+</div>
+
+
+<div
+    id="developer-error"
+    class="error-state"
+    hidden
+>
+    Unable to load this developer.
+</div>
+
+
+<section
+    id="developer-profile"
+    hidden
+>
+
+    <a
+        href="/developers"
+        class="back-link"
+    >
+        ← Back to developers
+    </a>
+
+
+    <header class="profile-header">
+
+        <div class="profile-avatar" id="profile-avatar">
+            D
+        </div>
+
+        <div>
+
+            <span class="eyebrow">
+                DEVELOPER PROFILE
+            </span>
+
+            <h1 id="profile-name">
+                Developer
+            </h1>
+
+            <p id="profile-role">
+                —
+            </p>
+
+            <span
+                id="profile-experience"
+                class="experience-badge"
+            >
+                —
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <section class="profile-section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                SKILLS
+            </span>
+
+            <h2>
+                Connected skills
+            </h2>
+
+        </div>
+
+
+        <div
+            id="profile-skills"
+            class="tag-list"
+        >
+        </div>
+
+    </section>
+
+
+    <section class="profile-section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                PROJECTS
+            </span>
+
+            <h2>
+                Connected projects
+            </h2>
+
+        </div>
+
+
+        <div
+            id="profile-projects"
+            class="project-grid"
+        >
+        </div>
+
+    </section>
+
+
+    <section class="profile-section">
+
+        <div class="info-panel">
+
+            <div>
+
+                <span class="eyebrow">
+                    GRAPH CONNECTIONS
+                </span>
+
+                <h2>
+                    Why this is useful
+                </h2>
+
+                <p>
+                    A developer is connected to skills and
+                    projects through relationships in the
+                    graph. This lets us explore the developer's
+                    knowledge without manually joining several
+                    tables.
+                </p>
+
+            </div>
+
+
+            <div class="connection-preview">
+
+                <div class="connection-node">
+                    <span id="connection-developer">
+                        Developer
+                    </span>
+                </div>
+
+                <div class="connection-line"></div>
+
+                <div class="connection-node">
+                    Skills
+                </div>
+
+                <div class="connection-line"></div>
+
+                <div class="connection-node">
+                    Projects
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+    loadDeveloperProfile();
+</script>
+
+{% endblock %}

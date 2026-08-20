@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}
+SkillGraph — Developers
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <span class="eyebrow">
+        DEVELOPER EXPLORER
+    </span>
+
+    <h1>
+        Developers
+    </h1>
+
+    <p>
+        Explore developers and discover the skills and
+        projects connected to them.
+    </p>
+
+</section>
+
+
+<section class="search-section">
+
+    <input
+        id="developer-search"
+        class="search-input"
+        type="search"
+        placeholder="Search developers..."
+        autocomplete="off"
+    >
+
+</section>
+
+
+<div
+    id="developers-loading"
+    class="loading-state"
+>
+    Loading developers...
+</div>
+
+
+<div
+    id="developers-empty"
+    class="empty-state"
+    hidden
+>
+    No developers found.
+</div>
+
+
+<section
+    id="developers-grid"
+    class="developer-grid"
+>
+</section>
+
+
+<div
+    id="developer-error"
+    class="error-state"
+    hidden
+>
+    Unable to load developers. Please try again.
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+    loadDevelopers();
+</script>
+
+{% endblock %}

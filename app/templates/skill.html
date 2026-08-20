@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}
+SkillGraph — Skill
+{% endblock %}
+
+
+{% block content %}
+
+<div
+    id="skill-loading"
+    class="loading-state profile-loading"
+>
+    Loading skill...
+</div>
+
+
+<div
+    id="skill-error"
+    class="error-state"
+    hidden
+>
+    Unable to load this skill.
+</div>
+
+
+<section
+    id="skill-detail"
+    hidden
+>
+
+    <a
+        href="/skills"
+        class="back-link"
+    >
+        ← Back to skills
+    </a>
+
+
+    <header class="profile-header">
+
+        <div class="profile-avatar" id="skill-avatar">
+            S
+        </div>
+
+        <div>
+
+            <span class="eyebrow">
+                SKILL EXPLORER
+            </span>
+
+            <h1 id="skill-name">
+                Skill
+            </h1>
+
+            <p>
+                Explore the graph connections around this skill.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- Developers -->
+
+    <section class="profile-section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                DEVELOPERS
+            </span>
+
+            <h2>
+                Developers with this skill
+            </h2>
+
+        </div>
+
+
+        <div
+            id="skill-developers"
+            class="connection-list"
+        >
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+
+    <section class="profile-section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                PROJECTS
+            </span>
+
+            <h2>
+                Projects connected to this skill
+            </h2>
+
+        </div>
+
+
+        <div
+            id="skill-projects"
+            class="project-grid"
+        >
+        </div>
+
+    </section>
+
+
+    <!-- Related skills -->
+
+<section class="profile-section">
+
+    <div class="section-heading">
+
+        <span class="eyebrow">
+            GRAPH CONNECTIONS
+        </span>
+
+        <h2>
+            Related skills
+        </h2>
+
+        <p>
+            Skills connected through developers
+            in the knowledge graph.
+        </p>
+
+    </div>
+
+
+    <div
+        id="related-skills"
+        class="tag-list"
+    >
+    </div>
+
+</section>
+
+
+<section class="profile-section">
+
+    <div class="section-heading">
+
+        <span class="eyebrow">
+            LEARNING OPTIONS
+        </span>
+
+        <h2>
+            Next skills to explore
+        </h2>
+
+        <p>
+            Skills that commonly follow this skill
+            in the knowledge graph.
+        </p>
+
+    </div>
+
+
+    <div
+        id="next-skills"
+        class="tag-list"
+    >
+    </div>
+
+</section>
+
+
+    <!-- Graph explanation -->
+
+    <section class="profile-section">
+
+        <div class="info-panel">
+
+            <div>
+
+                <span class="eyebrow">
+                    MULTI-HOP TRAVERSAL
+                </span>
+
+                <h2>
+                    How the graph connects this skill
+                </h2>
+
+                <p>
+                    SkillGraph can start at a skill,
+                    traverse to developers, and then
+                    continue to projects or other skills.
+                    This type of connected exploration
+                    is where a graph database provides
+                    a natural data model.
+                </p>
+
+            </div>
+
+
+            <div class="connection-preview">
+
+                <div class="connection-node">
+                    <span id="graph-skill">
+                        Skill
+                    </span>
+                </div>
+
+                <div class="connection-line"></div>
+
+                <div class="connection-node">
+                    Developers
+                </div>
+
+                <div class="connection-line"></div>
+
+                <div class="connection-node">
+                    Projects
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+    loadSkillDetail();
+</script>
+
+{% endblock %}

@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block title %}
+SkillGraph — Dashboard
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            DEVELOPER KNOWLEDGE GRAPH
+        </span>
+
+        <h1>
+            Explore the connections
+            behind developer skills.
+        </h1>
+
+        <p>
+            Discover developers, skills, technologies,
+            projects and learning paths through a connected
+            knowledge graph.
+        </p>
+
+        <div class="hero-actions">
+            <a
+                href="/learning-path"
+                class="button button-primary"
+            >
+                Find a Learning Path
+            </a>
+
+            <a
+                href="/developers"
+                class="button button-secondary"
+            >
+                Explore Developers
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="stats-grid">
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Developers
+        </span>
+
+        <strong id="developer-count">
+            —
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Skills
+        </span>
+
+        <strong id="skill-count">
+            —
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Technologies
+        </span>
+
+        <strong id="technology-count">
+            —
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Projects
+        </span>
+
+        <strong id="project-count">
+            —
+        </strong>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="eyebrow">
+                EXPLORE
+            </span>
+
+            <h2>
+                Navigate the graph
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="explore-grid">
+
+        <a href="/developers" class="explore-card">
+
+            <div class="explore-icon">
+                D
+            </div>
+
+            <h3>
+                Developers
+            </h3>
+
+            <p>
+                Explore developer skills,
+                experience and projects.
+            </p>
+
+            <span class="card-link">
+                Explore →
+            </span>
+
+        </a>
+
+
+        <a href="/skills" class="explore-card">
+
+            <div class="explore-icon">
+                S
+            </div>
+
+            <h3>
+                Skills
+            </h3>
+
+            <p>
+                Discover related skills,
+                prerequisites and resources.
+            </p>
+
+            <span class="card-link">
+                Explore →
+            </span>
+
+        </a>
+
+
+        <a href="/learning-path" class="explore-card">
+
+            <div class="explore-icon">
+                →
+            </div>
+
+            <h3>
+                Learning Paths
+            </h3>
+
+            <p>
+                Find connected paths between
+                two skills.
+            </p>
+
+            <span class="card-link">
+                Find a path →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="info-panel">
+
+        <div>
+
+            <span class="eyebrow">
+                WHY GRAPH?
+            </span>
+
+            <h2>
+                Relationships are the data.
+            </h2>
+
+            <p>
+                SkillGraph uses a graph database because
+                developers, skills, projects and technologies
+                are naturally connected. Instead of navigating
+                multiple relational joins, we can traverse
+                these relationships directly.
+            </p>
+
+        </div>
+
+        <div class="graph-preview">
+
+            <div class="graph-node">
+                Python
+            </div>
+
+            <div class="graph-line"></div>
+
+            <div class="graph-node">
+                REST APIs
+            </div>
+
+            <div class="graph-line"></div>
+
+            <div class="graph-node">
+                Django
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+    loadDashboardStats();
+
+</script>
+
+{% endblock %}
