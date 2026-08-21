@@ -4,7 +4,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
 from fastapi.responses import HTMLResponse
 
 from app.routes.api import router
@@ -18,16 +17,23 @@ app = FastAPI(
     description="Developer skills and learning path explorer",
     version="1.0.0",
 )
+
+# ============================================================
+# CORS
+# ============================================================
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://skillgraph-theta.vercel.app",]
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "https://skillgraph-theta.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.mount(
     "/static",
@@ -52,6 +58,7 @@ def dashboard(request: Request):
         context={},
     )
 
+
 @app.get("/learning-path", response_class=HTMLResponse)
 def learning_path_page(request: Request):
     return templates.TemplateResponse(
@@ -60,6 +67,7 @@ def learning_path_page(request: Request):
         context={},
     )
 
+
 @app.get("/developers")
 def developers_page(request: Request):
     return templates.TemplateResponse(
@@ -67,6 +75,7 @@ def developers_page(request: Request):
         name="developers.html",
         context={},
     )
+
 
 @app.get("/developers/{name}")
 def developer_page(request: Request, name: str):
@@ -78,6 +87,7 @@ def developer_page(request: Request, name: str):
         },
     )
 
+
 @app.get("/skills")
 def skills_page(request: Request):
     return templates.TemplateResponse(
@@ -86,9 +96,9 @@ def skills_page(request: Request):
         context={},
     )
 
+
 @app.get("/skills/{name}")
 def skill_page(request: Request, name: str):
-
     return templates.TemplateResponse(
         request=request,
         name="skill.html",
@@ -96,6 +106,7 @@ def skill_page(request: Request, name: str):
             "skill_name": name,
         },
     )
+
 
 @app.get("/health")
 def health_check():
